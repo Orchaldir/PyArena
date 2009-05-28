@@ -27,6 +27,20 @@ class SimpleBody:
         
         return True
     
+    def can_move(self, direction, cell=None):
+        if self.map is None or direction < 0 or direction >= 4:        
+            return False
+        
+        new_x = self.x + SimpleBody.direction_x[direction]
+        new_y = self.y + SimpleBody.direction_y[direction]
+        
+        cell = self.map.get_cell(new_x, new_y)
+        
+        if cell is None or not cell.is_walkable(self):         
+            return False
+        
+        return True 
+    
     def draw(self):
         self.tile.draw(self.x, self.y)
     

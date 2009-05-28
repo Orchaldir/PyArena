@@ -20,7 +20,8 @@ if __name__ == '__main__':
     
     create_color_tile('Grass', 0, 255, 0)
     create_color_tile('Stone', 200, 200, 200) 
-    create_image_tile('Fey', 'fey.png')  
+    create_image_tile('Fey', 'fey.png')
+    create_image_tile('Demon', 'demon.png')    
     
     map = Map()
     map.create(32, 24, CellType('Test', False, 'Grass'))     
@@ -28,6 +29,9 @@ if __name__ == '__main__':
     
     creature = Creature(SimpleBody('Fey'))    
     map.add_creature(creature, 2, 5)
+    
+    demon = Creature(SimpleBody('Demon'))    
+    map.add_creature(demon, 4, 5)
     
     @window.event
     def on_draw():
